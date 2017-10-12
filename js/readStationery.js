@@ -1,7 +1,7 @@
 function openList() {
     $.ajax({
         type: "GET",
-        url: "js/Year9.txt",
+        url: "Year9.txt",
         dataType: "text",
         success: function(data) {processData(data);}
      });
