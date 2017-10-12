@@ -14,6 +14,7 @@ function processData(allText) {
 
     for (var i=1; i<allTextLines.length; i++) {
         var data = allTextLines[i].split(',');
+        console.log(data);
         if (data.length == headers.length) {
 
             var tarr = [];
@@ -23,5 +24,5 @@ function processData(allText) {
             lines.push(tarr);
         }
     }
-     alert(lines);
+     console.log(lines);
 }
