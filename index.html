@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title> School Stationery & Uniform </title>
+		<link rel="stylesheet" href="style.css" />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/listTabs.js"></script>
+	</head>
+	<body>
+		<div id = "wrapper">
+			<header> 
+				<div class="banner-elements">
+					<img src="logo.png" width="143px" height="90px"/>
+					<div class="search">
+						<input type="text" name="search" placeholder="Search.." class="search-text">
+					</div>
+					<ul>
+						<li> <button> Button 1 </button> </li>
+						<li> <button> Button 2 </button> </li>
+					</ul>
+				</div>
+			</header>
+			<nav>
+				<ul>
+					<li><button> Button 1 </button></li>
+					<li><button> Button 2 </button></li>
+					<li><button> Button 3 </button></li>
+				</ul>
+			</nav>
+			<div id="main-content">
+				<div id= "info-banner">
+				</div>
+				<div id="side-tab"> <!-- make this wider -->
+					<div id="tabs">
+						<button class="tablink active" onclick="viewTab(event, 'my-list')">My List</button>
+						<button class="tablink" onclick="viewTab(event, 'news')">News</button>
+					</div>
+					<div id="my-list" class="tab-content active">
+						<p>This text should be inside of the personal list</p>
+					</div>
+					<div id="news" class="tab-content">
+						<p>This text should be inside of the news tab</p>
+					</div>
+				</div>
+				<div id="recommended-items">
+					<div id="row1">
+						<div class="items">
+						</div>
+						<div class="items">
+						</div>
+						<div class="items">
+						</div>
+					</div>
+					<div id="row2">
+						<div class="items">
+						</div>
+						<div class="items">
+						</div>
+						<div class="items">
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
