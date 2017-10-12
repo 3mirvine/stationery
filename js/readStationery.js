@@ -1,7 +1,7 @@
 function openList() {
     $.ajax({
         type: "GET",
-        url: "Year9.csv",
+        url: "https://3mirvine.github.io/stationery/Year9.csv",
         dataType: "text",
         success: function(data) {processData(data);}
      });
