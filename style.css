@@ -239,7 +239,6 @@ nav button
 {
 	list-style:none;
 	padding-left: 10px;
-	line-height: 30px;
 }
 
 .year-level
@@ -252,11 +251,21 @@ nav button
 	color: white;
 	border-radius: 10px 10px 0px 0px;
 	margin-top: 50px;
+	line-height: 30px;
+}
+
+.subject-list
+{
+	width: 900px;
+	background-color: #f0f0f0;
+	border-radius: 0px 0px 10px 10px;
+	padding-left: 40px;
+	padding-right: 20px;
 }
 
 .subjects
 {
-	width: 960px;
-	background-color: #f0f0f0;
-	border-radius: 0px 0px 10px 10px;
+	display: inline-block;
+	margin-right: 20px;
+	width: 130px;
 }
