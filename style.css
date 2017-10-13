@@ -235,7 +235,28 @@ nav button
 	border-bottom-right-radius:10px;
 }
 
-.year-levels ul
+.stationery ul
 {
 	list-style:none;
+	padding-left: 10px;
+	line-height: 30px;
+}
+
+.year-level
+{
+	vertical-align: middle;
+	text-align: center;
+	width: 960px;
+	height: 30px;
+	background-color: blue;
+	color: white;
+	border-radius: 10px 10px 0px 0px;
+	margin-top: 50px;
+}
+
+.subjects
+{
+	width: 960px;
+	background-color: #f0f0f0;
+	border-radius: 0px 0px 10px 10px;
 }
