@@ -43,34 +43,21 @@
 						<li class="year-level">Year 9</li>
 						<li id="year9" class="subject-list"></li>
 						<li class="year-level">Year 10</li>
-						<li class="subject-list">Content</li>
+						<li class="subject-list"></li>
 						<li class="year-level">Year 11 (NCEA Level 1)</li>
-						<li class="subject-list">Content</li>
+						<li class="subject-list"></li>
 						<li class="year-level">Year 12 (NCEA Level 2)</li>
-						<li class="subject-list">Content</li>
+						<li class="subject-list"></li>
 						<li class="year-level">Year 13 (NCEA Level 3)</li>
-						<li class="subject-list">Content</li>
+						<li class="subject-list"></li>
 					</ul>
 				</div>
+				<button>View Stationery</button>
 			</div>
 		</div>
 		<script>
 			$(document).ready(function() {
-				var div = document.getElementById('year9')
-				for (var i = 0; i < 6; i++) {
-					var li = document.createElement('li');
-					li.className = "subjects";
-					div.appendChild(li);
-					var checkbox = document.createElement('input');
-					checkbox.type = "checkbox";
-					checkbox.id = "Checkbox " + i;
-					checkbox.style = "margin-right: 10px"
-					li.appendChild(checkbox);
-					var label = document.createElement('label');
-					label.htmlFor = "Checkbox" + i;
-					label.appendChild(document.createTextNode("Agriculture & Horticulture"));
-					li.appendChild(label);	
-				}
+				openSubjectList();
 			})
 		</script>
 	</body>
