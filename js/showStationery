@@ -5,7 +5,7 @@ function idSubjects(){
 		}).get();
 		//localStorage["subjects"] = selectedSubjects;
 		alert(selectedSubjects);
-		getSubjects(selectedSubjects.join());
+		getSubjects(selectedSubjects);
 	}
 	else {
 		alert("Unfortunately your browser is too old to support making a list. Try again on a more modern device");
@@ -13,7 +13,7 @@ function idSubjects(){
 }
 
 function getSubjects(levelSubject){
-	var tempYearSubject = levelSubject.split('y');
+	var tempYearSubject = levelSubject.join().split('*');
 	var yearSubject = tempYearSubject.join().split(',');
 	var year = [];
 	var subject = [];
@@ -38,16 +38,18 @@ function getSubjects(levelSubject){
 			curSubjectList.push(subject[j]);
 		}
 		firstSubjectPos = lastSubjectPos + 1;
+
         (function(i){
             $.ajax({
                 type: "GET",
                 url: "https://3mirvine.github.io/stationery/Year" + difYearLevels[i] + ".csv",
+                async: false,
                 dataType: "text",
-                success: function(data) {showItems(data, curSubjectList);} 
+                success: function(data) {showItems(data, curSubjectList);}, 
             })
         }) (i);
     }
-}
+} 
 
 function showItems(allText, subjectList){
 	var allTextLines = allText.split(/\r\n|\n/);
@@ -59,7 +61,6 @@ function showItems(allText, subjectList){
 	for (var i = 0; i < subjectList.length; i++) {
 		subjectStationeryPos.push(stationeryList.length);
 		var curSubjectIndex = subjects.indexOf(subjectList[i]);
-
 		for (var j = 1; j < allTextLines.length; j++) {
 			var tempLine = allTextLines[j].split(',')[curSubjectIndex];
 			
@@ -72,8 +73,8 @@ function showItems(allText, subjectList){
 			}
 		}
 	}
-
+	console.log(stationeryList.length);
 	for (var i = 0; i < stationeryList.length; i++) {
-		console.log("You need: " + quantityList[i] + "" + stationeryList[i]);
+		console.log("You need: " + quantityList[i] + " " + stationeryList[i]);
 	}
 }

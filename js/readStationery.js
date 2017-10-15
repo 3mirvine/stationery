@@ -31,7 +31,7 @@ function showSubjects(allText, yearLevel) {
             ul.appendChild(li);
             var checkbox = document.createElement("input");
             checkbox.type = "checkbox";
-            checkbox.id = yearLevel + 'y' + subjects[j];
+            checkbox.id = yearLevel + '*' + subjects[j];
             checkbox.style = "margin-right: 10px";
             li.appendChild(checkbox);
             var label = document.createElement("label");
