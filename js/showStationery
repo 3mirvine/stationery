@@ -1,0 +1,79 @@
+function idSubjects(){
+	if (typeof(Storage) !== "undefined") {
+		var selectedSubjects = $("input:checkbox:checked").map(function () {
+			return this.id;
+		}).get();
+		//localStorage["subjects"] = selectedSubjects;
+		alert(selectedSubjects);
+		getSubjects(selectedSubjects.join());
+	}
+	else {
+		alert("Unfortunately your browser is too old to support making a list. Try again on a more modern device");
+	}
+}
+
+function getSubjects(levelSubject){
+	var tempYearSubject = levelSubject.split('y');
+	var yearSubject = tempYearSubject.join().split(',');
+	var year = [];
+	var subject = [];
+
+	for (var i = 0; i < yearSubject.length; i++) {
+		if ((i % 2) == 0) {
+			year.push(yearSubject[i]);
+		}
+		else {
+			subject.push(yearSubject[i]);
+		}
+	}
+
+	let difYearLevels = [...new Set(year)];
+	var firstSubjectPos = 0;
+
+	for (var i = 0; i < difYearLevels.length; i++) {
+		var lastSubjectPos = year.lastIndexOf(difYearLevels[i]);
+		var curSubjectList = [];
+
+		for (var j = firstSubjectPos; j <= lastSubjectPos; j++) {
+			curSubjectList.push(subject[j]);
+		}
+		firstSubjectPos = lastSubjectPos + 1;
+        (function(i){
+            $.ajax({
+                type: "GET",
+                url: "https://3mirvine.github.io/stationery/Year" + difYearLevels[i] + ".csv",
+                dataType: "text",
+                success: function(data) {showItems(data, curSubjectList);} 
+            })
+        }) (i);
+    }
+}
+
+function showItems(allText, subjectList){
+	var allTextLines = allText.split(/\r\n|\n/);
+	var subjects = allTextLines[0].split(',');
+	var subjectStationeryPos = [];
+	var stationeryList = [];
+	var quantityList = [];
+
+	for (var i = 0; i < subjectList.length; i++) {
+		subjectStationeryPos.push(stationeryList.length);
+		var curSubjectIndex = subjects.indexOf(subjectList[i]);
+
+		for (var j = 1; j < allTextLines.length; j++) {
+			var tempLine = allTextLines[j].split(',')[curSubjectIndex];
+			
+			if (tempLine){
+				quantityList.push(tempLine.split('x')[0]);
+				stationeryList.push(tempLine.split('x')[1]);
+			}
+			else {
+				j = allTextLines.length;
+			}
+		}
+	}
+
+	for (var i = 0; i < stationeryList.length; i++) {
+		console.log("You need: " + quantityList[i] + "" + stationeryList[i]);
+	}
+}
