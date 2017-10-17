@@ -59,7 +59,7 @@ function getSubjects(levelSubject){
     localStorage["yearEndPos"] = JSON.stringify(yearEndPos); //number of subjects
     localStorage["stationeryEndPos"] = JSON.stringify(stationeryEndPos);
     localStorage["stationeryList"] = JSON.stringify(stationeryList);
-    localStorage["quantityList"] = JSON.stringify(quantityList);
+    localStorage["quantityList"] = JSON.stringify(quantityList); // var quantityList = JSON.parse(localStorage["quantityList"])
 } 
 
 function findItems(allText, subjectList){
