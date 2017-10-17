@@ -1,10 +1,13 @@
 function idSubjects(){
+	stationeryEndPos = [];
+	stationeryList = [];
+	quantityList = [];
 	if (typeof(Storage) !== "undefined") {
 		var selectedSubjects = $("input:checkbox:checked").map(function () {
 			return this.id;
 		}).get();
 		//localStorage["subjects"] = selectedSubjects;
-		alert(selectedSubjects);
+		//alert(selectedSubjects);
 		getSubjects(selectedSubjects);
 	}
 	else {
@@ -29,9 +32,13 @@ function getSubjects(levelSubject){
 
 	let difYearLevels = [...new Set(year)];
 	var firstSubjectPos = 0;
+	localStorage["difYearLevels"] = JSON.stringify(difYearLevels);
+
+	var yearEndPos = []; // Number of subjects per year
 
 	for (var i = 0; i < difYearLevels.length; i++) {
 		var lastSubjectPos = year.lastIndexOf(difYearLevels[i]);
+		yearEndPos.push(lastSubjectPos);
 		var curSubjectList = [];
 
 		for (var j = firstSubjectPos; j <= lastSubjectPos; j++) {
@@ -45,21 +52,21 @@ function getSubjects(levelSubject){
                 url: "https://3mirvine.github.io/stationery/Year" + difYearLevels[i] + ".csv",
                 async: false,
                 dataType: "text",
-                success: function(data) {showItems(data, curSubjectList);}, 
+                success: function(data) {findItems(data, curSubjectList);}, 
             })
         }) (i);
     }
+    localStorage["yearEndPos"] = JSON.stringify(yearEndPos); //number of subjects
+    localStorage["stationeryEndPos"] = JSON.stringify(stationeryEndPos);
+    localStorage["stationeryList"] = JSON.stringify(stationeryList);
+    localStorage["quantityList"] = JSON.stringify(quantityList);
 } 
 
-function showItems(allText, subjectList){
+function findItems(allText, subjectList){
 	var allTextLines = allText.split(/\r\n|\n/);
 	var subjects = allTextLines[0].split(',');
-	var subjectStationeryPos = [];
-	var stationeryList = [];
-	var quantityList = [];
 
 	for (var i = 0; i < subjectList.length; i++) {
-		subjectStationeryPos.push(stationeryList.length);
 		var curSubjectIndex = subjects.indexOf(subjectList[i]);
 		for (var j = 1; j < allTextLines.length; j++) {
 			var tempLine = allTextLines[j].split(',')[curSubjectIndex];
@@ -72,9 +79,22 @@ function showItems(allText, subjectList){
 				j = allTextLines.length;
 			}
 		}
+		stationeryEndPos.push(stationeryList.length);
 	}
+<<<<<<< HEAD:js/showStationery
+	// console.log(stationeryList.length);
+	// for (var i = 0; i < stationeryList.length; i++) {
+	// 	console.log("You need: " + quantityList[i] + " " + stationeryList[i]);
+	// }
+}
+
+function displayItems(){
+	
+}
+=======
 	console.log(stationeryList.length);
 	for (var i = 0; i < stationeryList.length; i++) {
 		console.log("You need: " + quantityList[i] + " " + stationeryList[i]);
 	}
 }
+>>>>>>> 4455f90dcb4deb796b8321a87f2005e706923033:js/showStationery.js
