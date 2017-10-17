@@ -81,7 +81,6 @@ function findItems(allText, subjectList){
 		}
 		stationeryEndPos.push(stationeryList.length);
 	}
-<<<<<<< HEAD:js/showStationery
 	// console.log(stationeryList.length);
 	// for (var i = 0; i < stationeryList.length; i++) {
 	// 	console.log("You need: " + quantityList[i] + " " + stationeryList[i]);
@@ -91,13 +90,3 @@ function findItems(allText, subjectList){
 function displayItems(){
 	
 }
-=======
-	console.log(stationeryList.length);
-	for (var i = 0; i < stationeryList.length; i++) {
-		console.log("You need: " + quantityList[i] + " " + stationeryList[i]);
-	}
-}
-<<<<<<< HEAD:js/showStationery.js
->>>>>>> 4455f90dcb4deb796b8321a87f2005e706923033:js/showStationery.js
-=======
->>>>>>> 4455f90dcb4deb796b8321a87f2005e706923033:js/showStationery.js
