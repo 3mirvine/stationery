@@ -88,5 +88,19 @@ function findItems(allText, subjectList){
 }
 
 function displayItems(){
+	var difYearLevels = JSON.parse(localStorage["difYearLevels"]);
+	var yearEndPos = JSON.parse(localStorage["yearEndPos"]);
+    	var stationeryEndPos = JSON.parse(localStorage["stationeryEndPos"]);
+    	var stationeryList = JSON.parse(localStorage["stationeryList"]);
+	var quantityList = JSON.parse(localStorage["quantityList"]);
 	
+	for (var i = 0; i <= stationeryEndPos.length; i++){
+		if (i == 0){
+			// Create Year heading	
+		}
+		else if((difYearLevels.length > 1) && (i == yearEndPos)){
+			// Create other Year headings if there are some
+		}
+		var subjectUl = document.createElement("ul");
+	}
 }
