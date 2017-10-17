@@ -97,4 +97,7 @@ function displayItems(){
 		console.log("You need: " + quantityList[i] + " " + stationeryList[i]);
 	}
 }
+<<<<<<< HEAD:js/showStationery.js
+>>>>>>> 4455f90dcb4deb796b8321a87f2005e706923033:js/showStationery.js
+=======
 >>>>>>> 4455f90dcb4deb796b8321a87f2005e706923033:js/showStationery.js
