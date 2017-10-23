@@ -1,4 +1,5 @@
 function idSubjects(){
+	entireSubjectList = [];
 	stationeryEndPos = [];
 	stationeryList = [];
 	quantityList = [];
@@ -6,8 +7,6 @@ function idSubjects(){
 		var selectedSubjects = $("input:checkbox:checked").map(function () {
 			return this.id;
 		}).get();
-		//localStorage["subjects"] = selectedSubjects;
-		//alert(selectedSubjects);
 		getSubjects(selectedSubjects);
 	}
 	else {
@@ -60,6 +59,7 @@ function getSubjects(levelSubject){
     localStorage["stationeryEndPos"] = JSON.stringify(stationeryEndPos);
     localStorage["stationeryList"] = JSON.stringify(stationeryList);
     localStorage["quantityList"] = JSON.stringify(quantityList); // var quantityList = JSON.parse(localStorage["quantityList"])
+    localStorage["entireSubjectList"] = JSON.stringify(entireSubjectList);
 } 
 
 function findItems(allText, subjectList){
@@ -68,6 +68,7 @@ function findItems(allText, subjectList){
 
 	for (var i = 0; i < subjectList.length; i++) {
 		var curSubjectIndex = subjects.indexOf(subjectList[i]);
+		entireSubjectList.push(subjectList[i]);
 		for (var j = 1; j < allTextLines.length; j++) {
 			var tempLine = allTextLines[j].split(',')[curSubjectIndex];
 			
@@ -89,18 +90,50 @@ function findItems(allText, subjectList){
 
 function displayItems(){
 	var difYearLevels = JSON.parse(localStorage["difYearLevels"]);
-	var yearEndPos = JSON.parse(localStorage["yearEndPos"]);
-    	var stationeryEndPos = JSON.parse(localStorage["stationeryEndPos"]);
-    	var stationeryList = JSON.parse(localStorage["stationeryList"]);
+	var yearEndPos = JSON.parse(localStorage["yearEndPos"]); // start of next year
+    var stationeryEndPos = JSON.parse(localStorage["stationeryEndPos"]); // Start of next subject
+    var stationeryList = JSON.parse(localStorage["stationeryList"]);
 	var quantityList = JSON.parse(localStorage["quantityList"]);
-	
-	for (var i = 0; i <= stationeryEndPos.length; i++){
-		if (i == 0){
-			// Create Year heading	
+	var entireSubjectList = JSON.parse(localStorage["entireSubjectList"]);
+	var div = document.getElementById("stationeryItems");
+	var yearPos = 1;
+	var subjectPos = 0;
+	var stationeryPos = 0;
+
+	for (var i = 0; i < difYearLevels.length; i++) { // For each year
+			var yearHeader = document.createElement("h1"); // Create Year heading
+			yearHeader.id = "year" + difYearLevels[i] + "Header";
+			yearHeader.innerHTML = "Year " + difYearLevels[i];
+			div.appendChild(yearHeader);
+
+		for (var j = subjectPos; j <= yearEndPos[i]; j++) { // For each subject
+			var subjectUl = document.createElement("ul");
+			subjectUl.className = "subjectUl";
+			div.appendChild(subjectUl);
+			var subjectHeader = document.createElement("h2");
+			subjectHeader.id = difYearLevels[i] + entireSubjectList[j];
+			subjectHeader.innerHTML = entireSubjectList[j];
+			subjectUl.appendChild(subjectHeader);
+
+			for (var k = stationeryPos; k < stationeryEndPos[j]; k++) { // for each stationery item
+				var li = document.createElement("li");
+				li.className = "stationeryTile";
+				subjectUl.appendChild(li);
+				var img = document.createElement("img");
+				img.id = difYearLevels[i] + entireSubjectList[j] + stationeryList[k] + "image";
+				img.src = "tempIMG.svg";
+				img.width = "170";
+				img.height = img.width;
+				li.appendChild(img);
+
+				var p = document.createElement("p");
+				p.id = difYearLevels[i] + entireSubjectList[j] + stationeryList[k];
+				p.innerHTML = quantityList[k] + " x " + stationeryList[k];
+				p.className = "stationeryName";
+				li.appendChild(p);
+			}
+			stationeryPos = stationeryEndPos[j];
 		}
-		else if((difYearLevels.length > 1) && (i == yearEndPos)){
-			// Create other Year headings if there are some
-		}
-		var subjectUl = document.createElement("ul");
+		subjectPos = yearEndPos[i] + 1;
 	}
 }

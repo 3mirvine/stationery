@@ -20,7 +20,7 @@ function showSubjects(allText, yearLevel) {
     for (var i = 0; i < (subjects.length / 6); i++) {
         var ul = document.createElement("ul");
         ul.className = "subjectRows";
-        ul.id = "row" + i;
+        ul.className += " subjectRow" + i;
         div.appendChild(ul)
         for (var j = (i * 6); j < ((i + 1) * 6); j++) {
             if (j >= subjects.length){

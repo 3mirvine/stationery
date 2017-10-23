@@ -45,18 +45,6 @@ header
 	padding-left:10px;
 }
 
-.banner-elements button
-{
-	background-color: #42506e;
-    border: none;
-    color: white;
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 18px;
-	cursor:pointer;
-}
-
 .search
 {
 	display: inline-block;
@@ -96,7 +84,7 @@ nav li
 	
 }
 
-nav button
+nav button, .banner-elements button
 {
 	background-color: #42506e;
     border: none;
@@ -108,6 +96,7 @@ nav button
 	border-radius:8px;
 	cursor:pointer;
 }
+
 #main-content
 {
 	width:980px;
@@ -191,7 +180,7 @@ nav button
 	overflow:hidden;
 }
 
-#row1 .items, #row2 .items
+#recRow1 .items, #recRow2 .items
 {
 	width:240px;
 	margin-left:15px;
@@ -268,7 +257,7 @@ nav button
 	margin-top: 30px;
 }
 
-#row0
+.subjectRow0
 {
 	margin-top: 20px;
 }
@@ -280,4 +269,25 @@ nav button
 	width: 118px;
 	border: 1px solid;
 	padding: 5px;
+}
+
+.subjectUl
+{
+	background-color: green;
+}
+
+.stationeryTile
+{
+	display: inline-block;
+	width: 170px;
+	height: 200px;
+	background-color: blue;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.stationeryName
+{
+	margin: 0px;
+	text-align: center;
 }

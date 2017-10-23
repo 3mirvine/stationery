@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="style.css" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="js/readStationery.js"></script>
-		<script type="text/javascript" src ="js/showStationery"></script>
+		<script type="text/javascript" src ="js/showStationery.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -26,9 +26,9 @@
 			</header>
 			<nav>
 				<ul>
-					<li><button> Button 1 </button></li>
-					<li><button> Button 2 </button></li>
-					<li><button> Button 3 </button></li>
+					<li><button onclick="location.href='index.html'"> Home </button></li>
+					<li><button onclick="location.href='subjects.html'"> Create List </button></li>
+					<li><button onclick="location.href='stationery.html'"> View List </button></li>
 				</ul>
 			</nav>
 			<div id="main-content">
@@ -51,12 +51,16 @@
 						<li class="year-level">Year 13 (NCEA Level 3)</li>
 						<li id="year13" class="subject-list"></li>
 					</ul>
-				<button onclick="idSubjects()">View Stationery</button>
+				<button id="getStationery">View Stationery</button>
 			</div>
 		</div>
 		<script>
 			$(document).ready(function() {
 				openSubjectList();
+			})
+			$('#getStationery').click(function() {
+				idSubjects();
+				window.location.href = "stationery.html";
 			})
 		</script>
 	</body>

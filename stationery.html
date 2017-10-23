@@ -7,7 +7,7 @@
 		<title> School Stationery & Uniform </title>
 		<link rel="stylesheet" href="style.css" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script type="text/javascript" src ="js/showStationery"></script>
+		<script type="text/javascript" src ="js/showStationery.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -25,9 +25,9 @@
 			</header>
 			<nav>
 				<ul>
-					<li><button> Button 1 </button></li>
-					<li><button> Button 2 </button></li>
-					<li><button> Button 3 </button></li>
+					<li><button onclick="location.href='index.html'"> Home </button></li>
+					<li><button onclick="location.href='subjects.html'"> Create List </button></li>
+					<li><button onclick="location.href='stationery.html'"> View List </button></li>
 				</ul>
 			</nav>
 			<div id="main-content">
@@ -38,7 +38,14 @@
 						<li class="progress3">Manage Your List</li>
 					</ul>
 				</div>
+				<div id="stationeryItems">
+				</div>
 			</div>
 		</div>
+		<script>
+			$(document).ready(function() {
+				displayItems();
+			})
+		</script>
 	</body>
 </html>
