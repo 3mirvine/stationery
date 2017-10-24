@@ -44,7 +44,12 @@
 		</div>
 		<script>
 			$(document).ready(function() {
-				displayItems();
+            	$.ajax({
+                type: "GET",
+                url: "https://3mirvine.github.io/stationery/itemPrices.csv",
+                dataType: "text",
+                success: function(data) {getPrices(data);}, 
+            	})
 			})
 		</script>
 	</body>

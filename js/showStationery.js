@@ -88,6 +88,21 @@ function findItems(allText, subjectList){
 	// }
 }
 
+function getPrices(allText){
+	var allTextLines = allText.split(/\r\n|\n/);
+	var stationeryList = JSON.parse(localStorage["stationeryList"]);
+	var priceList = [];
+
+	for (var i = 0; i < stationeryList.length; i++) {
+		for (var j = 0; j < allTextLines.length; j++) {
+			if (allTextLines[j].split(',')[0] == stationeryList[i]) {
+				priceList.push(allTextLines[j].split(',')[1]);
+			}
+		}
+	}
+	localStorage["priceList"] = JSON.stringify(priceList);
+}
+
 function displayItems(){
 	var difYearLevels = JSON.parse(localStorage["difYearLevels"]);
 	var yearEndPos = JSON.parse(localStorage["yearEndPos"]); // start of next year
@@ -95,6 +110,7 @@ function displayItems(){
     var stationeryList = JSON.parse(localStorage["stationeryList"]);
 	var quantityList = JSON.parse(localStorage["quantityList"]);
 	var entireSubjectList = JSON.parse(localStorage["entireSubjectList"]);
+	var priceList = JSON.parse(localStorage["priceList"]);
 	var div = document.getElementById("stationeryItems");
 	var yearPos = 1;
 	var subjectPos = 0;
@@ -125,11 +141,14 @@ function displayItems(){
 				img.width = "170";
 				img.height = img.width;
 				li.appendChild(img);
-
 				var p = document.createElement("p");
 				p.id = difYearLevels[i] + entireSubjectList[j] + stationeryList[k];
 				p.innerHTML = quantityList[k] + " x " + stationeryList[k];
 				p.className = "stationeryName";
+				li.appendChild(p);
+				p = document.createElement("p");
+				p.innerHTML = "Total Cost: $" + priceList[k];
+				p.className = "stationeryPrice";
 				li.appendChild(p);
 			}
 			stationeryPos = stationeryEndPos[j];
