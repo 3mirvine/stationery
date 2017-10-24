@@ -94,13 +94,18 @@ function getPrices(allText){
 	var priceList = [];
 
 	for (var i = 0; i < stationeryList.length; i++) {
+		console.log(stationeryList[i]);
 		for (var j = 0; j < allTextLines.length; j++) {
+			//console.log(allTextLines[j].split(',')[0]);
 			if (allTextLines[j].split(',')[0] == stationeryList[i]) {
 				priceList.push(allTextLines[j].split(',')[1]);
+				console.log(allTextLines[j].split(',')[1]);
+				console.log(priceList[i]);
 			}
 		}
 	}
 	localStorage["priceList"] = JSON.stringify(priceList);
+	displayItems();
 }
 
 function displayItems(){
@@ -147,7 +152,7 @@ function displayItems(){
 				p.className = "stationeryName";
 				li.appendChild(p);
 				p = document.createElement("p");
-				p.innerHTML = "Total Cost: $" + priceList[k];
+				p.innerHTML = "Total Cost: $" + (priceList[k] * quantityList[k]).toFixed(2);
 				p.className = "stationeryPrice";
 				li.appendChild(p);
 			}

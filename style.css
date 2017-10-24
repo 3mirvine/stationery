@@ -280,7 +280,7 @@ nav button, .banner-elements button
 {
 	display: inline-block;
 	width: 170px;
-	height: 200px;
+	height: 230px;
 	background-color: blue;
 	margin-right: 10px;
 	margin-bottom: 10px;
@@ -289,5 +289,12 @@ nav button, .banner-elements button
 .stationeryName
 {
 	margin: 0px;
+	text-align: center;
+}
+
+.stationeryPrice
+{
+	margin: 0px;
+	margin-top: 5px;
 	text-align: center;
 }
