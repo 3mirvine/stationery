@@ -71,7 +71,6 @@ function findItems(allText, subjectList){
 		entireSubjectList.push(subjectList[i]);
 		for (var j = 1; j < allTextLines.length; j++) {
 			var tempLine = allTextLines[j].split(',')[curSubjectIndex];
-			
 			if (tempLine){
 				quantityList.push(tempLine.split('x')[0]);
 				stationeryList.push(tempLine.split('x')[1]);
@@ -94,13 +93,9 @@ function getPrices(allText){
 	var priceList = [];
 
 	for (var i = 0; i < stationeryList.length; i++) {
-		console.log(stationeryList[i]);
 		for (var j = 0; j < allTextLines.length; j++) {
-			//console.log(allTextLines[j].split(',')[0]);
 			if (allTextLines[j].split(',')[0] == stationeryList[i]) {
 				priceList.push(allTextLines[j].split(',')[1]);
-				console.log(allTextLines[j].split(',')[1]);
-				console.log(priceList[i]);
 			}
 		}
 	}
