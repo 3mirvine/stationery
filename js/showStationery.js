@@ -118,7 +118,7 @@ function displayItems(){
 
 	for (var i = 0; i < difYearLevels.length; i++) { // For each year
 			var yearHeader = document.createElement("h1"); // Create Year heading
-			//yearHeader.id = "year" + difYearLevels[i] + "Header";
+			yearHeader.className = "yearHeader";
 			yearHeader.innerHTML = "Year " + difYearLevels[i];
 			div.appendChild(yearHeader);
 
@@ -127,7 +127,7 @@ function displayItems(){
 			subjectUl.className = "subjectUl";
 			div.appendChild(subjectUl);
 			var subjectHeader = document.createElement("h2");
-			//subjectHeader.id = difYearLevels[i] + entireSubjectList[j];
+			subjectHeader.className = "subjectHeader";
 			subjectHeader.innerHTML = entireSubjectList[j];
 			subjectUl.appendChild(subjectHeader);
 
@@ -136,13 +136,11 @@ function displayItems(){
 				li.className = "stationeryTile";
 				subjectUl.appendChild(li);
 				var img = document.createElement("img");
-				//img.id = difYearLevels[i] + entireSubjectList[j] + stationeryList[k] + "image";
 				img.src = "tempIMG.svg";
 				img.width = "170";
 				img.height = img.width;
 				li.appendChild(img);
 				var p = document.createElement("p");
-				//p.id = difYearLevels[i] + entireSubjectList[j] + stationeryList[k];
 				p.innerHTML = quantityList[k] + " x " + stationeryList[k];
 				p.className = "stationeryName";
 				li.appendChild(p);
@@ -155,6 +153,10 @@ function displayItems(){
 		}
 		subjectPos = yearEndPos[i] + 1;
 	}
+}
+
+function homeList(){
+
 }
 
 function homeItems(allText){

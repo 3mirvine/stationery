@@ -33,45 +33,35 @@
 			<div id="main-content">
 				<div id= "info-banner">
 				</div>
-				<div id="side-tab"> <!-- make this wider -->
+				<div id="side-tab">
 					<div id="tabs">
 						<button class="tablink active" onclick="viewTab(event, 'my-list')">My List</button>
 						<button class="tablink" onclick="viewTab(event, 'news')">News</button>
 					</div>
 					<div id="my-list" class="tab-content active">
-						<p>This text should be inside of the personal list</p>
+						<p>You have not created a list yet.</p>
+						<p>Click the "Create List" button above to get started</p>
 					</div>
 					<div id="news" class="tab-content">
-						<p>The website is now live! Check out some the current features by using the navigation above.</p>
+						<p>The website is now live!</p>
+						<p>Check out some of the current features by using the navigation above.</p>
 					</div>
 				</div>
-				<div id="recommended-items">
-					<!-- <div id="recRow1">
-						<div class="items">
-						</div>
-						<div class="items">
-						</div>
-						<div class="items">
-						</div>
-					</div>
-					<div id="recRow2">
-						<div class="items">
-						</div>
-						<div class="items">
-						</div>
-						<div class="items">
-						</div>
-					</div> -->					
+				<div id="recommended-items">				
 				</div>
 			</div>
 		<script>
 			$(document).ready(function() {
+				//homeList();
             	$.ajax({
                 type: "GET",
                 url: "https://3mirvine.github.io/stationery/itemPrices.csv",
                 dataType: "text",
                 success: function(data) {homeItems(data);}, 
             	})
+			})
+			$('#info-banner').click(function() {
+				window.location.href = "subjects.html";
 			})
 		</script>
 	</body>
