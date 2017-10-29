@@ -118,7 +118,7 @@ function displayItems(){
 
 	for (var i = 0; i < difYearLevels.length; i++) { // For each year
 			var yearHeader = document.createElement("h1"); // Create Year heading
-			yearHeader.id = "year" + difYearLevels[i] + "Header";
+			//yearHeader.id = "year" + difYearLevels[i] + "Header";
 			yearHeader.innerHTML = "Year " + difYearLevels[i];
 			div.appendChild(yearHeader);
 
@@ -127,7 +127,7 @@ function displayItems(){
 			subjectUl.className = "subjectUl";
 			div.appendChild(subjectUl);
 			var subjectHeader = document.createElement("h2");
-			subjectHeader.id = difYearLevels[i] + entireSubjectList[j];
+			//subjectHeader.id = difYearLevels[i] + entireSubjectList[j];
 			subjectHeader.innerHTML = entireSubjectList[j];
 			subjectUl.appendChild(subjectHeader);
 
@@ -136,13 +136,13 @@ function displayItems(){
 				li.className = "stationeryTile";
 				subjectUl.appendChild(li);
 				var img = document.createElement("img");
-				img.id = difYearLevels[i] + entireSubjectList[j] + stationeryList[k] + "image";
+				//img.id = difYearLevels[i] + entireSubjectList[j] + stationeryList[k] + "image";
 				img.src = "tempIMG.svg";
 				img.width = "170";
 				img.height = img.width;
 				li.appendChild(img);
 				var p = document.createElement("p");
-				p.id = difYearLevels[i] + entireSubjectList[j] + stationeryList[k];
+				//p.id = difYearLevels[i] + entireSubjectList[j] + stationeryList[k];
 				p.innerHTML = quantityList[k] + " x " + stationeryList[k];
 				p.className = "stationeryName";
 				li.appendChild(p);
@@ -154,5 +154,46 @@ function displayItems(){
 			stationeryPos = stationeryEndPos[j];
 		}
 		subjectPos = yearEndPos[i] + 1;
+	}
+}
+
+function homeItems(allText){
+	var allTextLines = allText.split(/\r\n|\n/);
+	var itemIndex = [];
+	var numItems = 6;
+	var numRows = 2;
+	var numCols = 3;
+	var div = document.getElementById("recommended-items");
+	var randomItem = 0;
+
+	for (var i = 0; i < allTextLines.length; i++) {
+		itemIndex.push(i);
+	}
+
+	for (var i = allTextLines.length; i > (allTextLines.length - numItems); i--) {
+		if (((allTextLines.length - i) % numCols) == 0){
+			var ul = document.createElement("ul");
+			ul.className = "homeItemRows";
+			div.appendChild(ul);
+		}
+		randomItem = Math.floor(Math.random() * i);
+		itemIndex.splice(randomItem, 1);
+		var li = document.createElement("li");
+		li.className = "homeItems";
+		ul.appendChild(li);
+		var img = document.createElement("img");
+		img.className = "homeItemImage";
+		img.src = "tempIMG.svg";
+		img.width = "170";
+		img.height = img.width;
+		li.appendChild(img);
+		var p = document.createElement("p");
+		p.innerHTML = allTextLines[randomItem].split(',')[0];
+		p.className = "homeItemName";
+		li.appendChild(p);
+		p = document.createElement("p");
+		p.innerHTML = "$" + allTextLines[randomItem].split(',')[1];
+		p.className = "homeItemPrice";
+		li.appendChild(p);
 	}
 }

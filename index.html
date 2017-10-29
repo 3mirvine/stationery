@@ -8,9 +8,9 @@
 		<link rel="stylesheet" href="style.css" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script type="text/javascript" src="js/listTabs.js"></script>
+		<script type="text/javascript" src="js/showStationery.js"></script>
 	</head>
 	<body>
-		<div id = "wrapper">
 			<header> 
 				<div class="banner-elements">
 					<img src="logo.png" width="143px" height="90px"/>
@@ -46,7 +46,7 @@
 					</div>
 				</div>
 				<div id="recommended-items">
-					<div id="recRow1">
+					<!-- <div id="recRow1">
 						<div class="items">
 						</div>
 						<div class="items">
@@ -61,9 +61,18 @@
 						</div>
 						<div class="items">
 						</div>
-					</div>					
+					</div> -->					
 				</div>
 			</div>
-		</div>
+		<script>
+			$(document).ready(function() {
+            	$.ajax({
+                type: "GET",
+                url: "https://3mirvine.github.io/stationery/itemPrices.csv",
+                dataType: "text",
+                success: function(data) {homeItems(data);}, 
+            	})
+			})
+		</script>
 	</body>
 </html>

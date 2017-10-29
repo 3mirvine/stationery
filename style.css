@@ -1,4 +1,14 @@
-#wrapper
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@font-face {
+    font-family: 'deliciousroman';
+    src: url('delicious-roman-webfont.woff2') format('woff2'),
+         url('delicious-roman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html
 {
 	background-color:#f0f0f0;
 }
@@ -116,7 +126,7 @@ nav button, .banner-elements button
 {
 	background-color:white;
 	width:200px;
-	height:530px;
+	height:670px;
 	float:left;
 }
 
@@ -139,11 +149,6 @@ nav button, .banner-elements button
 	width:99px;
 }
 
-#tabs button:hover
-{
-	
-}
-
 #tabs button.active
 {
 	background-color:#5a90c2;
@@ -156,7 +161,7 @@ nav button, .banner-elements button
 	padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
-	height:530px;
+	height:708px;
 }
 
 .tab-content.active
@@ -174,20 +179,40 @@ nav button, .banner-elements button
 #recommended-items
 {
 	width:780px;
-	background-color:green;
+	background-color:#769ab5;
 	padding-bottom:10px;
 	float:left;
 	overflow:hidden;
 }
 
-#recRow1 .items, #recRow2 .items
+.homeItemRows
 {
-	width:240px;
-	margin-left:15px;
-	margin-top:10px;
-	height:250px;
-	float:left;
-	background-color:red;
+	margin: 0px;
+	padding-left: 25px;
+	padding-top: 20px;
+}
+
+.homeItems
+{
+	display: inline-block;
+	width: 230px;
+	height: 300px;
+	background-color: white;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.homeItemImage
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.homeItemName
+{
+
 }
 
 #progress-bar ul
