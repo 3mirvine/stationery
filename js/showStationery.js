@@ -177,7 +177,6 @@ function homeItems(allText){
 			div.appendChild(ul);
 		}
 		randomItem = Math.floor(Math.random() * i);
-		itemIndex.splice(randomItem, 1);
 		var li = document.createElement("li");
 		li.className = "homeItems";
 		ul.appendChild(li);
@@ -188,12 +187,13 @@ function homeItems(allText){
 		img.height = img.width;
 		li.appendChild(img);
 		var p = document.createElement("p");
-		p.innerHTML = allTextLines[randomItem].split(',')[0];
+		p.innerHTML = allTextLines[itemIndex[randomItem]].split(',')[0];
 		p.className = "homeItemName";
 		li.appendChild(p);
 		p = document.createElement("p");
-		p.innerHTML = "$" + allTextLines[randomItem].split(',')[1];
+		p.innerHTML = "$" + allTextLines[itemIndex[randomItem]].split(',')[1];
 		p.className = "homeItemPrice";
 		li.appendChild(p);
+		itemIndex.splice(randomItem, 1);
 	}
 }

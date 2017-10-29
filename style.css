@@ -111,7 +111,7 @@ nav button, .banner-elements button
 {
 	width:980px;
 	margin: 0 auto;
-	background-color:orange;
+	background-color: #f0f0f0;
 	padding-top:20px;
 	overflow:hidden;
 }
@@ -179,7 +179,7 @@ nav button, .banner-elements button
 #recommended-items
 {
 	width:780px;
-	background-color:#769ab5;
+	background-color:#9fadb7;
 	padding-bottom:10px;
 	float:left;
 	overflow:hidden;
@@ -212,7 +212,23 @@ nav button, .banner-elements button
 
 .homeItemName
 {
+	font-family: 'deliciousroman';
+	font-size: 20pt;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	text-align: center;
+}
 
+.homeItemPrice
+{
+	font-family: 'deliciousroman';
+	font-size: 18pt;
+	margin-top: 0px;
+	display: inline-block;
+	border-radius: 6px;
+	padding: 8px 12px;
+	background-color: #63b6f7;
+	text-align: center;
 }
 
 #progress-bar ul
