@@ -31,13 +31,16 @@ function showSubjects(allText, yearLevel) {
             ul.appendChild(li);
             var checkbox = document.createElement("input");
             checkbox.type = "checkbox";
+            checkbox.style = "float:left"
             checkbox.id = yearLevel + '*' + subjects[j];
-            checkbox.style = "margin-right: 10px";
             li.appendChild(checkbox);
+            var labelDiv = document.createElement("div");
+            labelDiv.className = "checkboxLabel";
+            li.appendChild(labelDiv);
             var label = document.createElement("label");
             label.htmlFor = yearLevel + '*' + subjects[j];
             label.appendChild(document.createTextNode(subjects[j]));
-            li.appendChild(label);
+            labelDiv.appendChild(label);
         }
     }
 }

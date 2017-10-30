@@ -325,13 +325,18 @@ nav button, .banner-elements button
 
 .subjects
 {
-	display: inline-flex;
+	display: inline-table;
 	margin-right: 20px;
 	width: 118px;
 	border: 1px solid;
 	padding: 5px;
 	font-family: 'Open Sans';
 	font-size: 11pt;
+}
+
+.checkboxLabel
+{
+	margin-left: 25px;
 }
 
 #getStationery
