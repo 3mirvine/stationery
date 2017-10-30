@@ -167,7 +167,7 @@ nav button, .banner-elements button
     border: 1px solid #ccc;
     border-top: none;
 	height:708px;
-	font-family: 'OpenSans';
+	font-family: 'Open Sans';
 	font-weight: 600;
 }
 
@@ -330,7 +330,7 @@ nav button, .banner-elements button
 	width: 118px;
 	border: 1px solid;
 	padding: 5px;
-	font-family: 'OpenSans';
+	font-family: 'Open Sans';
 }
 
 #getStationery
