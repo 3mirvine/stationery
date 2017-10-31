@@ -136,7 +136,7 @@ function displayItems(){
 				li.className = "stationeryTile";
 				subjectUl.appendChild(li);
 				var img = document.createElement("img");
-				img.src = "images/" + stationeryList[k] + ".jpg";
+				img.src = "Images/" + stationeryList[k] + ".jpg";
 				img.width = "170";
 				img.height = img.width;
 				li.appendChild(img);
@@ -189,7 +189,7 @@ function homeList(listPage){
 				p.className = "homeListText";
 				li.appendChild(p);
 				var img = document.createElement("img");
-				img.src = "images/" + myList[i] + ".jpg";
+				img.src = "Images/" + myList[i] + ".jpg";
 				img.width = "50";
 				li.appendChild(img);
 			}
@@ -238,7 +238,7 @@ function homeItems(allText){
 		ul.appendChild(li);
 		var img = document.createElement("img");
 		img.className = "homeItemImage";
-		img.src = "images/" + allTextLines[itemIndex[randomItem]].split(',')[0] + ".jpg";
+		img.src = "Images/" + allTextLines[itemIndex[randomItem]].split(',')[0] + ".jpg";
 		img.width = "170";
 		img.height = img.width;
 		li.appendChild(img);
@@ -301,7 +301,7 @@ function showSearch(){
 			li.className = "searchItems";
 			ul.appendChild(li);
 			var img = document.createElement("img");
-			img.src = "images/" + allStationeryItems[searchItemIndex[i]].split(',')[0] + ".jpg";
+			img.src = "Images/" + allStationeryItems[searchItemIndex[i]].split(',')[0] + ".jpg";
 			img.width = "170";
 			img.height = img.width;
 			li.appendChild(img);

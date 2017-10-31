@@ -3,8 +3,8 @@
 
 @font-face {
     font-family: 'deliciousroman';
-    src: url('fonts/delicious-roman-webfont.woff2') format('woff2'),
-         url('fonts/delicious-roman-webfont.woff') format('woff');
+    src: url('Fonts/delicious-roman-webfont.woff2') format('woff2'),
+         url('Fonts/delicious-roman-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -152,7 +152,7 @@ nav button, .banner-elements button
 }
 #info-banner
 {
-	background-image: url("images/Banner.jpg");
+	background-image: url("Images/Banner.jpg");
 	background-repeat: no-repeat;
 	width: auto;
 	height: 350px;
