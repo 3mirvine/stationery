@@ -162,6 +162,14 @@ function homeList(listPage){
 	var listItemPrice = 0;
 	let myList = [...new Set(stationeryList)];
 
+	if (localStorage["stationeryList"]) {
+		var buttonPrev = document.getElementById("prevListPage");
+		var buttonNext = document.getElementById("nextListPage");
+
+		buttonPrev.style.display = inline;
+		buttonNext.style.display = inline;
+	}
+
 	if (localStorage["stationeryList"] && ((listPage * numPageItems) < (myList.length + numPageItems)) && listPage > 0) {
 		$("#listText").remove();
 		$("#homeListUl").remove();	
