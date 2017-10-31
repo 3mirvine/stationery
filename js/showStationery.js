@@ -156,11 +156,8 @@ function displayItems(){
 }
 
 function homeList(listPage){
-	var stationeryList = JSON.parse(localStorage["stationeryList"]);
-	var priceList = JSON.parse(localStorage["priceList"]);
 	var numPageItems = 5;
 	var listItemPrice = 0;
-	let myList = [...new Set(stationeryList)];
 
 	if (localStorage["stationeryList"]) {
 		var buttonPrev = document.getElementById("prevListPage");
@@ -171,6 +168,9 @@ function homeList(listPage){
 	}
 
 	if (localStorage["stationeryList"] && ((listPage * numPageItems) < (myList.length + numPageItems)) && listPage > 0) {
+		var stationeryList = JSON.parse(localStorage["stationeryList"]);
+		var priceList = JSON.parse(localStorage["priceList"]);
+		let myList = [...new Set(stationeryList)];
 		$("#listText").remove();
 		$("#homeListUl").remove();	
 		var div = document.getElementById("my-list");
