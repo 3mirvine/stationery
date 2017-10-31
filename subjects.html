@@ -13,20 +13,18 @@
 	<body>
 			<header> 
 				<div class="banner-elements">
-					<img src="logo.png" width="143px" height="90px"/>
-					<div class="search">
-						<input type="text" name="search" placeholder="Search.." class="search-text">
-					</div>
-					<ul>
-						<li> <button> Button 1 </button> </li>
-						<li> <button> Button 2 </button> </li>
-					</ul>
+					<img src="images/logo.png" width="143px" height="90px"/>
+					<form onsubmit="event.preventDefault(); getItems();" class="search">
+						<input type="search" name="search" placeholder="Search.." id="search-text">
+					</form>
+					<button class="viewStores" onclick="location.href='viewStores.html'"> View Stores </button> 
 				</div>
 			</header>
 			<nav>
 				<ul>
 					<li><button onclick="location.href='index.html'"> Home </button></li>
-					<li><button onclick="location.href='subjects.html'"> Create List </button></li>
+					<li><button onclick="location.href='subjects.html'" style="border-color: white; 
+					border-style: solid;"> Create List </button></li>
 					<li><button onclick="location.href='stationery.html'"> View List </button></li>
 				</ul>
 			</nav>
@@ -61,6 +59,16 @@
 				idSubjects();
 				window.location.href = "stationery.html";
 			})
+			function getItems() {
+				var search = document.getElementById("search-text");
+				var searchItem = search.value;
+				$.ajax({
+                type: "GET",
+                url: "https://3mirvine.github.io/stationery/Lists/itemPrices.csv",
+                dataType: "text",
+                success: function(data) {searchItems(data, searchItem);} 
+            	})
+			}
 		</script>
 	</body>
 </html>

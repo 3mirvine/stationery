@@ -48,7 +48,7 @@ function getSubjects(levelSubject){
         (function(i){
             $.ajax({
                 type: "GET",
-                url: "https://3mirvine.github.io/stationery/Year" + difYearLevels[i] + ".csv",
+                url: "https://3mirvine.github.io/stationery/Lists/Year" + difYearLevels[i] + ".csv",
                 async: false,
                 dataType: "text",
                 success: function(data) {findItems(data, curSubjectList);}, 
@@ -136,7 +136,7 @@ function displayItems(){
 				li.className = "stationeryTile";
 				subjectUl.appendChild(li);
 				var img = document.createElement("img");
-				img.src = "tempIMG.svg";
+				img.src = "images/" + stationeryList[k] + ".jpg";
 				img.width = "170";
 				img.height = img.width;
 				li.appendChild(img);
@@ -155,12 +155,66 @@ function displayItems(){
 	}
 }
 
-function homeList(){
+function homeList(listPage){
+	var stationeryList = JSON.parse(localStorage["stationeryList"]);
+	var priceList = JSON.parse(localStorage["priceList"]);
+	var numPageItems = 5;
+	var listItemPrice = 0;
+	let myList = [...new Set(stationeryList)];
 
+	if (localStorage["stationeryList"] && ((listPage * numPageItems) < (myList.length + numPageItems)) && listPage > 0) {
+		$("#listText").remove();
+		$("#homeListUl").remove();	
+		var div = document.getElementById("my-list");
+		var ul = document.createElement("ul");
+		ul.id = "homeListUl";
+		div.appendChild(ul);
+
+		for (var i = (numPageItems * (listPage - 1)); i < (listPage * numPageItems); i++) {
+			if (i >= (myList.length)) {
+				i = (listPage * numPageItems);
+			}
+			else
+			{
+				for (var j = 0; j < stationeryList.length; j++) {
+					if (stationeryList[j] == myList[i]) {
+						listItemPrice = priceList[j];
+					}
+				}
+				var li = document.createElement("li");
+				li.className = "homeListItem";
+				ul.appendChild(li);
+				var p = document.createElement("p");
+				p.innerHTML = myList[i] + " " + "$" + listItemPrice;
+				p.className = "homeListText";
+				li.appendChild(p);
+				var img = document.createElement("img");
+				img.src = "images/" + myList[i] + ".jpg";
+				img.width = "50";
+				li.appendChild(img);
+			}
+		}
+		return listPage;
+	}
+	else if (listPage < 1)
+	{
+		listPage = 1;
+		return listPage;
+	}
+	else if ((listPage * numPageItems) >= (myList.length + numPageItems))
+	{
+		listPage--;
+		return listPage;
+	}
+	else 
+	{
+		return;
+	}
 }
 
 function homeItems(allText){
 	var allTextLines = allText.split(/\r\n|\n/);
+	localStorage["allStationeryItems"] = JSON.stringify(allTextLines);
 	var itemIndex = [];
 	var numItems = 6;
 	var numRows = 2;
@@ -184,7 +238,7 @@ function homeItems(allText){
 		ul.appendChild(li);
 		var img = document.createElement("img");
 		img.className = "homeItemImage";
-		img.src = "tempIMG.svg";
+		img.src = "images/" + allTextLines[itemIndex[randomItem]].split(',')[0] + ".jpg";
 		img.width = "170";
 		img.height = img.width;
 		li.appendChild(img);
@@ -197,5 +251,68 @@ function homeItems(allText){
 		p.className = "homeItemPrice";
 		li.appendChild(p);
 		itemIndex.splice(randomItem, 1);
+	}
+}
+
+function searchItems(allText, searchItem){
+	var allTextLines = allText.split(/\r\n|\n/);
+	var item = "temp";
+	var itemPart = [];
+	var searchItemIndex = [];
+	localStorage["allStationeryItems"] = JSON.stringify(allTextLines);
+	localStorage["searchQuery"] = searchItem;
+	for (var i = 0; i < allTextLines.length; i++) {
+		item = allTextLines[i].split(',')[0];
+		if (item == searchItem){
+			searchItemIndex.push(i);
+		}
+		itemPart = item.split(" ");
+		for (var j = 0; j < itemPart.length; j++) {
+			if (itemPart[j] == searchItem) {
+				searchItemIndex.push(i);
+			}
+		}
+	}
+	localStorage["searchItemIndex"] = JSON.stringify(searchItemIndex);
+	window.location.href = "searchResults.html"; 
+}
+
+function showSearch(){
+	var allStationeryItems = JSON.parse(localStorage["allStationeryItems"]);
+	searchItemIndex = JSON.parse(localStorage["searchItemIndex"]);
+	var div = document.getElementById("main-content");
+	var p = document.createElement("p");
+	p.id = "searchQuery";
+	p.innerHTML = "You have searched for the item: \"" + localStorage["searchQuery"] + "\" and there were " + searchItemIndex.length + " result(s) found:";
+	div.appendChild(p);
+	if (searchItemIndex.length == 0) {
+		p = document.createElement("p");
+		p.id = "nullResults";
+		p.innerHTML = "There were no results found for your search. Please try again or refer to one of the stationery websites to try and find a wider range of products.";
+		div.appendChild(p);
+	}
+	else {
+		var ul = document.createElement("ul");
+		ul.className = "searchUl";
+		div.appendChild(ul);
+
+		for (var i = 0; i < searchItemIndex.length; i++) {
+			var li = document.createElement("li");
+			li.className = "searchItems";
+			ul.appendChild(li);
+			var img = document.createElement("img");
+			img.src = "images/" + allStationeryItems[searchItemIndex[i]].split(',')[0] + ".jpg";
+			img.width = "170";
+			img.height = img.width;
+			li.appendChild(img);
+			var p = document.createElement("p");
+			p.innerHTML = allStationeryItems[searchItemIndex[i]].split(',')[0];
+			p.className = "searchItemName";
+			li.appendChild(p);
+			p = document.createElement("p");
+			p.innerHTML = "$" + allStationeryItems[searchItemIndex[i]].split(',')[1];
+			p.className = "searchItemPrice";
+			li.appendChild(p);
+		}
 	}
 }

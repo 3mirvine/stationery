@@ -7,7 +7,6 @@
 		<title> School Stationery & Uniform </title>
 		<link rel="stylesheet" href="style.css" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script type="text/javascript" src="js/listTabs.js"></script>
 		<script type="text/javascript" src="js/showStationery.js"></script>
 	</head>
 	<body>
@@ -22,53 +21,16 @@
 			</header>
 			<nav>
 				<ul>
-					<li><button onclick="location.href='index.html'" > Home </button></li>
+					<li><button onclick="location.href='index.html'">Home</button></li>
 					<li><button onclick="location.href='subjects.html'"> Create List </button></li>
 					<li><button onclick="location.href='stationery.html'"> View List </button></li>
 				</ul>
 			</nav>
 			<div id="main-content">
-				<div id= "info-banner">
-				</div>
-				<div id="side-tab">
-					<div id="tabs">
-						<button class="tablink active" onclick="viewTab(event, 'my-list')">My List</button>
-						<button class="tablink" onclick="viewTab(event, 'news')">News</button>
-					</div>
-					<div id="my-list" class="tab-content active">
-						<div id="listText">
-						<p>You have not created a list yet.</p>
-						<p>Click the "Create List" button above to get started</p>
-						</div>
-						<button id="prevListPage">Prev Page</button>
-						<button id="nextListPage">Next Page</button> 
-					</div>
-					<div id="news" class="tab-content">
-						<p>The website is now live!</p>
-						<p>Check out some of the current features by using the navigation above.</p>
-					</div>
-				</div>
-				<div id="recommended-items">				
-				</div>
 			</div>
 		<script>
-			var listPage = 1;
 			$(document).ready(function() {
-            	$.ajax({
-                type: "GET",
-                url: "https://3mirvine.github.io/stationery/Lists/itemPrices.csv",
-                dataType: "text",
-                success: function(data) {homeItems(data); listPage = homeList(listPage);} 
-            	})
-			})
-			$('#info-banner').click(function() {
-				window.location.href = "subjects.html";
-			})
-			$('#nextListPage').click(function() {
-				listPage = homeList(++listPage);
-			})
-			$('#prevListPage').click(function() {
-				listPage = homeList(--listPage);
+				showSearch();
 			})
 			function getItems() {
 				var search = document.getElementById("search-text");

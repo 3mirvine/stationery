@@ -3,7 +3,7 @@ function openSubjectList() {
         (function(i){
             $.ajax({
                 type: "GET",
-                url: "https://3mirvine.github.io/stationery/Year" + i + ".csv",
+                url: "https://3mirvine.github.io/stationery/Lists/Year" + i + ".csv",
                 dataType: "text",
                 success: function(data) {showSubjects(data, i);} 
             })
@@ -39,6 +39,7 @@ function showSubjects(allText, yearLevel) {
             li.appendChild(labelDiv);
             var label = document.createElement("label");
             label.htmlFor = yearLevel + '*' + subjects[j];
+            label.style = "display:block";
             label.appendChild(document.createTextNode(subjects[j]));
             labelDiv.appendChild(label);
         }

@@ -3,8 +3,8 @@
 
 @font-face {
     font-family: 'deliciousroman';
-    src: url('delicious-roman-webfont.woff2') format('woff2'),
-         url('delicious-roman-webfont.woff') format('woff');
+    src: url('fonts/delicious-roman-webfont.woff2') format('woff2'),
+         url('fonts/delicious-roman-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -41,37 +41,70 @@ header
 	margin-top:5px;
 }
 
-.banner-elements ul 
+.viewStores
 {
-	display:inline-block;
-	float:right;
-	margin-top:40px;
-	padding-left:0px;
-}
-
-.banner-elements li
-{
-	float:left;
-	display:inline;
-	padding-left:10px;
+	float: right;
+	margin-top: 30px;
+	margin-right: 60px;
 }
 
 .search
 {
 	display: inline-block;
 	position: absolute;
-	top: 40px;
+	top: 28px;
 	margin-left:50px;
 }
 
-.search-text
+#search-text
 {
 	border-radius:5px;
 	border:none;
-	height:30px;
+	height:45px;
 	width:460px;
 	font-size:18px;
 	padding: 5px 10px;
+}
+
+#searchQuery
+{
+	font-family: 'Open Sans';
+	font-size: 18pt;
+	margin: 30px;
+}
+
+.searchUl
+{
+	background-color: #e2ecf1;
+}
+.searchItems
+{
+	display: inline-block;
+	background-color: #fff;
+	margin: 10px;
+}
+
+.searchItemName
+{
+	margin: 0px;
+	text-align: center;
+	font-family: 'deliciousroman';
+	font-size: 18pt;
+}
+
+.searchItemPrice
+{
+	margin: 10px 0px;
+	text-align: center;
+	font-family: 'deliciousroman';
+	font-size: 14pt;
+}
+
+#nullResults
+{
+	font-family: 'Open Sans';
+	font-size: 14pt;
+	margin: 30px;
 }
 
 nav
@@ -99,7 +132,7 @@ nav button, .banner-elements button
 {
 	background-color: #42506e;
     border: none;
-    color: white;
+    color: #fff;
     padding: 10px 32px;
     text-align: center;
     text-decoration: none;
@@ -113,13 +146,13 @@ nav button, .banner-elements button
 {
 	width:980px;
 	margin: 0 auto;
-	background-color: white;
+	background-color: #fff;
 	padding-top:20px;
 	overflow:hidden;
 }
 #info-banner
 {
-	background-image: url("Banner.jpg");
+	background-image: url("images/Banner.jpg");
 	background-repeat: no-repeat;
 	width: auto;
 	height: 350px;
@@ -129,7 +162,7 @@ nav button, .banner-elements button
 
 #side-tab
 {
-	background-color:white;
+	background-color:#fff;
 	width:200px;
 	height:670px;
 	float:left;
@@ -157,13 +190,13 @@ nav button, .banner-elements button
 #tabs button.active
 {
 	background-color:#5a90c2;
-	color:white;
+	color:#fff;
 }
 
 .tab-content
 {
 	display:none;
-	padding: 6px 12px;
+	padding: 6px 10px;
     border: 1px solid #ccc;
     border-top: none;
 	height:708px;
@@ -175,12 +208,48 @@ nav button, .banner-elements button
 {
 	display:block;
 	background-color:#5a90c2;
-	color:white;
+	color:#fff;
 }
 
 .tablink
 {
+	font-family: 'Open Sans';
 	font-size:12pt;
+}
+
+#prevListPage
+{
+	margin-right: 5px;
+}
+
+#prevListPage, #nextListPage
+{
+	margin-top: 10px;
+	background-color: #42506e;
+    border: none;
+    color: #fff;
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10pt;
+	border-radius:4px;
+	cursor:pointer;
+	font-family: 'Lato';
+}
+
+#homeListUl
+{
+	padding: 0px;
+}
+
+.homeListItem
+{
+	display: inline;
+}
+
+.homeListText
+{
+	margin-top: 10px;
 }
 
 #recommended-items
@@ -204,7 +273,7 @@ nav button, .banner-elements button
 	display: inline-block;
 	width: 230px;
 	height: 300px;
-	background-color: white;
+	background-color: #fff;
 	margin-right: 20px;
 	margin-bottom: 10px;
 	text-align: center;
@@ -236,7 +305,7 @@ nav button, .banner-elements button
 	padding: 8px 12px;
 	background-color: #2199f3;
 	text-align: center;
-	color: white;
+	color: #fff;
 }
 
 #progress-bar ul
@@ -259,8 +328,8 @@ nav button, .banner-elements button
 
 #progress-bar .active
 {
-	background-color:blue;
-	color:white;
+	background-color: #66aae8;
+	color:#fff;
 }
 
 .progress1
@@ -295,8 +364,8 @@ nav button, .banner-elements button
 	text-align: center;
 	width: 960px;
 	height: 30px;
-	background-color: blue;
-	color: white;
+	background-color: #66aae8;
+	color: #fff;
 	border-radius: 10px 10px 0px 0px;
 	margin-top: 50px;
 	line-height: 30px;
@@ -341,9 +410,9 @@ nav button, .banner-elements button
 
 #getStationery
 {
-	background-color: blue;
+	background-color: #66aae8;
     border: none;
-    color: white;
+    color: #fff;
     padding: 10px 32px;
     text-align: center;
     text-decoration: none;
@@ -378,7 +447,7 @@ nav button, .banner-elements button
 	display: inline-block;
 	width: 170px;
 	height: 270px;
-	background-color: white;
+	background-color: #fff;
 	margin-right: 10px;
 	margin-bottom: 20px;
 	vertical-align: middle;
@@ -398,4 +467,36 @@ nav button, .banner-elements button
 	text-align: center;
 	font-family: 'deliciousroman';
 	font-size: 14pt;
+}
+
+.storesHeader
+{
+	font-family: 'Lato';
+	font-size: 22pt;
+	margin: 30px;
+}
+
+.storeInfo
+{
+	font-family: 'Open Sans';
+	font-size: 18pt;
+	font-weight: 600;
+	margin: 30px;
+}
+.storeLinks
+{
+	background-color: #4b6b8e;
+	padding: 20px;
+}
+
+.storePages
+{
+	display: block;
+	margin: 30px;
+}
+
+.mapImg
+{
+	width: 100px;
+	margin-left: 100px;
 }
